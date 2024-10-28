@@ -1,0 +1,468 @@
+:root {
+    --primary-bg: #FFC397;
+    --secondary-color: #FFA998;
+    --accent-color: #18ACBA;
+    --highlight-color: #F76566;
+    --text-color: #333;
+    --light-text: #fff;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: var(--secondary-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.navbar:hover {
+    background-color: var(--accent-color);
+}
+
+.logo h1 {
+    color: var(--light-text);
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo span {
+    color: var(--highlight-color);
+}
+
+.back-button {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.back-button:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.auth-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.auth-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.auth-container {
+    background-color: var(--light-text);
+    padding: 3rem;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: var(--transition);
+}
+
+.auth-popup.active .auth-container {
+    transform: scale(1);
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    font-size: 2rem;
+}
+
+.auth-tabs {
+    display: flex;
+    margin-bottom: 2rem;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-tab.active {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.auth-form input,
+.auth-form select,
+.auth-form button {
+    padding: 1rem;
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.auth-form input:focus,
+.auth-form select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(24, 172, 186, 0.2);
+    outline: none;
+}
+
+.auth-form button {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.auth-form button:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.account-details {
+    background-color: var(--light-text);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#userInfo {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--primary-bg);
+}
+
+#userInfo h3 {
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#verificationStatus {
+    margin-bottom: 2rem;
+}
+
+.verified, .unverified {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.verified {
+    background-color: #4CAF50;
+    color: var(--light-text);
+}
+
+.unverified {
+    background-color: #FFA500;
+    color: var(--light-text);
+}
+
+#artisanProductForm {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--primary-bg);
+}
+
+#addProductForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#productList {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.product-item {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.product-item:hover img {
+    transform: scale(1.05);
+}
+
+.product-item h4 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.product-item p {
+    font-weight: bold;
+    color: var(--highlight-color);
+}
+
+.delete-product {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--highlight-color);
+    color: var(--light-text);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.product-item:hover .delete-product {
+    opacity: 1;
+}
+
+.delete-product:hover {
+    background-color: #d32f2f;
+    transform: rotate(90deg);
+}
+
+.error-message, .success-message {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: bold;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.error-message {
+    background-color: #ffdddd;
+    color: #f44336;
+}
+
+.success-message {
+    background-color: #ddffdd;
+    color: #4CAF50;
+}
+
+.verify-button {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 1rem;
+}
+
+.verify-button:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 2rem;
+    }
+
+    .product-item {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Add these styles to your existing CSS file */
+
+.artisan-product-form {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--box-shadow);
+    margin-top: 2rem;
+}
+
+.artisan-product-form h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+#addProductForm {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(24, 172, 186, 0.2);
+    outline: none;
+}
+
+.submit-button {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.submit-button:hover {
+    background-color: var(--highlight-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

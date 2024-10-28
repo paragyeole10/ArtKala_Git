@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtKala - Handcrafted Marketplace</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="opening-animation">
+        <img src="images/Logo_F2.jpg" alt="ArtKala Logo" id="logo">
+        <h2 id="tagline">Kala ki duniya mai sabko mile apni jagah</h2>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Art<span>Kala</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="artisans.html">Artisans</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="banner">
+            <div class="banner-content">
+                <h2>Discover Handcrafted Treasures</h2>
+                <p>Explore unique artworks from talented local artisans</p>
+                <a href="artisans.html" class="cta-button">Explore Now</a>
+            </div>
+        </section>
+
+        <section id="categories" class="categories">
+            <h2>Explore Our Categories</h2>
+            <div class="category-grid">
+                <div class="category-card" data-category="home-decor">
+                    <img src="images/Home_Decore.png" alt="Home Decor">
+                    <h3>Home Decor</h3>
+                </div>
+                <div class="category-card" data-category="art-prints">
+                    <img src="images/Art_Prints.png" alt="Art Prints">
+                    <h3>Art Prints</h3>
+                </div>
+                <div class="category-card" data-category="limited-edition-books">
+                    <img src="images/Art_Books.png" alt="Limited Edition Art Books">
+                    <h3>Limited Edition Art Books</h3>
+                </div>
+                <div class="category-card" data-category="collaborative-events">
+                    <img src="images/C_E.png" alt="Collaborative Events">
+                    <h3>Collaborative Events</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="featured-products" class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-slideshow">
+                <div class="slideshow-container" id="productSlideshow"></div>
+                <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+        </section>
+
+        <section id="artisans" class="featured-artisans">
+            <h2>Meet Our Artisans</h2>
+            <div class="artisan-grid" id="artisanGrid"></div>
+        </section>
+
+        <section id="workshops" class="upcoming-workshops">
+            <h2>Upcoming Workshops</h2>
+            <div class="workshop-grid" id="workshopGrid"></div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Get in Touch</h2>
+            <form id="contactForm" class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>ArtKala</h3>
+                <p>Empowering artisans, enriching lives</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#featured-products">Products</a></li>
+                    <li><a href="#artisans">Artisans</a></li>
+                    <li><a href="#workshops">Workshops</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <a href="#"class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Instagram</a>
+                <a href="#" class="social-icon">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ArtKala. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-product-details"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <br>
+</body>
+</html>

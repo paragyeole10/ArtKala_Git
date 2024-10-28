@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtKala - Meet the Artisans</title>
+    <link rel="stylesheet" href="artisans.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Art<span>Kala</span></h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="artisans.html">Artisans</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <button onclick="showCategory('all')">All</button>
+        <button onclick="showCategory('painters')">Painters</button>
+        <button onclick="showCategory('sculptors')">Sculptors</button>
+        <button onclick="showCategory('textile_artists')">Textile Artists</button>
+        <button onclick="showCategory('ceramicists')">Ceramicists</button>
+    </div>
+
+    <!-- Artisan List -->
+    <div class="artisan-list">
+        <h2 id="categoryTitle">Meet Our Talented Artisans</h2>
+        <div id="artisanList" class="artisan-grid">
+            <!-- Artisan Profile Cards -->
+            <div class="artisan-card">
+                <img src="Artisian_Images/Canvas/Chitra.jpeg" alt="Emma Johnson" class="artisan-image">
+                <h3>Chitra Kavya</h3>
+                <p class="artisan-title">Skilled painter</p>
+                <a href="https://www.instagram.com/py_art_47" class="instagram-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <p class="artisan-bio">Specializing in vibrant abstract compositions that capture the essence of emotion and movement.</p>
+                <div class="product-carousel">
+                    <img src="Artisian_Images/Canvas/3.png" alt="Product 1" class="product-image">
+                    <img src="Artisian_Images/Canvas/13.png" alt="Product 2" class="product-image">
+                    <img src="Artisian_Images/Canvas/12.png" alt="Product 3" class="product-image">
+                    <img src="Artisian_Images/Canvas/a7656b7db68d8b47c43693d29345c2ba.png" alt="Product 4" class="product-image">
+                    <img src="Artisian_Images/Canvas/6.png" alt="Product 5" class="product-image">
+                </div>
+                <button class="buy-product" onclick="redirectToProduct('Parag Yeole')">Buy Product</button>
+            </div>
+            <div class="artisan-card">
+                <img src="Artisian_Images/Pyarts/20240616_143013_Edit.jpg" alt="py_art_47" class="artisan-image">
+                <h3>Nameless Creator</h3>
+                <p class="artisan-title">No Name, Just Art</p>
+                <a href="https://www.instagram.com/py_art_47" class="instagram-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <p class="artisan-bio">✨An engineer who moonlights as an artist but occasionally forgets to post.</p>
+                <div class="product-carousel">
+                    <img src="Artisian_Images/Pyarts/Magazine/20240826_180950.jpg" alt="Product 1" class="product-image">
+                    <img src="Artisian_Images/Pyarts/Magazine/Parag_Sketch2.jpg" alt="Product 2" class="product-image">
+                    <img src="Artisian_Images/Pyarts/Magazine/20240731_144214.jpg" alt="Product 6" class="product-image">
+                    <img src="Artisian_Images/Pyarts/Magazine/20240911_231055.jpg" alt="Product 3" class="product-image">
+                    <img src="Artisian_Images/Pyarts/Magazine/IMG_20230903_142048_412.jpg" alt="Product 4" class="product-image">
+                    <img src="Artisian_Images/Pyarts/Magazine/IMG_20220713_190305_184 (1).jpg" alt="Product 5" class="product-image">
+                    <img src="Artisian_Images/Pyarts/Magazine/gojo.jpg" alt="Product 7" class="product-image">
+                </div>
+                <button class="buy-product" onclick="redirectToProduct('michael-chen')">Buy Product</button>
+            </div>
+            <div class="artisan-card">
+                <img src="Artisian_Images/Textile/artist.png" alt="Sophia Patel" class="artisan-image">
+                <h3>Sophia Patel</h3>
+                <p class="artisan-title">Textile Artist</p>
+                <a href="https://www.instagram.com/sophiapatelart" class="instagram-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <p class="artisan-bio">Weaving stories through vibrant tapestries and sustainable, eco-friendly fabric art.</p>
+                <div class="product-carousel">
+                    <img src="Artisian_Images/Textile/t1.png" alt="Product 1" class="product-image">
+                    <img src="Artisian_Images\Textile\t2.jpeg" alt="Product 2" class="product-image">
+                    <img src="Artisian_Images/Textile/t3.jpeg" alt="Product 3" class="product-image">
+                    <img src="Artisian_Images/Textile/t4.jpeg" alt="Product 4" class="product-image">
+                    <img src="Artisian_Images/Textile/ter.png" alt="Product 5" class="product-image">
+                </div>
+                <button class="buy-product" onclick="redirectToProduct('sophia-patel')">Buy Product</button>
+            </div>
+            <div class="artisan-card">
+                <img src="Artisian_Images/Ceramics/download (2).jpeg" alt="Ramu Kaka" class="artisan-image">
+                <h3>Ramu Kaka</h3>
+                <p class="artisan-title">Ceramics Expert</p>
+                <a href="https://www.instagram.com/davidkimceramics" class="instagram-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <p class="artisan-bio">Crafting functional pottery with a unique blend of traditional and contemporary designs.</p>
+                <div class="product-carousel">
+                    <img src="Artisian_Images/Ceramics/c1 (7).jpeg" alt="Product 1" class="product-image">
+                    <img src="Artisian_Images/Ceramics/c1 (4).jpeg" alt="Product 2" class="product-image">
+                    <img src="Artisian_Images/Ceramics/c1 (5).jpeg" alt="Product 3" class="product-image">
+                    <img src="Artisian_Images/Ceramics/c1 (6).jpeg" alt="Product 4" class="product-image">
+                    <img src="Artisian_Images/Ceramics/c1 (2).jpeg" alt="Product 5" class="product-image">
+                </div>
+                <button class="buy-product" onclick="redirectToProduct('david-kim')">Buy Product</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="feedback-section">
+        <h2>Share Your Feedback</h2>
+        <textarea id="feedbackInput" placeholder="Enter your feedback here..."></textarea>
+        <button onclick="submitFeedback()">Submit Feedback</button>
+        <div id="feedbackList"></div>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-button" onclick="openChatbot()">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 ArtKala. All Rights Reserved.</p>
+    </footer>
+
+    <script src="artisans.js"></script>
+</body>
+</html>

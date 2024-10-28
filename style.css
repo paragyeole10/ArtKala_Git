@@ -1,0 +1,665 @@
+:root {
+    --primary-bg: #FFC397;
+    --secondary-color: #FFA998;
+    --accent-color: #18ACBA;
+    --highlight-color: #F76566;
+    --text-color: #333;
+    --light-text: #fff;
+    --gold: #D4AF37;
+    --marble: #F2F2F2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--marble);
+    cursor: none;
+}
+
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--gold);
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Opening Animation */
+#opening-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--marble);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#logo {
+    border-radius: 50%;
+    max-width: 200px;
+    animation: zoomIn 2s ease-out, slideUp 1s ease-out 2s forwards;
+}
+
+#tagline {
+    opacity: 0;
+    animation: fadeIn 1s ease-out 3s forwards;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
+}
+
+@keyframes slideUp {
+    to { transform: translateY(-50px); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Navbar */
+header {
+    background-color: var(--marble);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    color: var(--text-color);
+    font-size: 2.5rem;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* Banner */
+.banner {
+    background-image: url('Artisian_Images/88230.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+    text-align: center;
+    color: var(--light-text);
+    position: relative;
+    z-index: 1;
+}
+
+.banner-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button {
+    padding: 12px 25px;
+    background-color: var(--gold);
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--highlight-color);
+    transform: scale(1.05);
+}
+
+/* Categories */
+.categories {
+    padding: 50px 0;
+    background-color: var(--marble);
+}
+
+.categories h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 50px;
+}
+
+.category-card {
+    background-color: var(--light-text);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+}
+
+.category-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.category-card h3 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+/* Featured Products */
+.featured-products {
+    padding: 50px 0;
+    background-color: var(--light-text);
+}
+
+.featured-products h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.product-slideshow {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.slideshow-container {
+    display: flex;
+    overflow: hidden;
+}
+
+.slide {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease;
+}
+
+.product-card {
+    background-color: var(--marble);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.product-info p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.product-price {
+    font-weight: bold;
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--gold);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background-color: var(--highlight-color);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Featured Artisans */
+.featured-artisans {
+    background-color: var(--secondary-color);
+    padding: 50px 0;
+}
+
+.featured-artisans h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--light-text);
+}
+
+.artisan-grid {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 50px;
+}
+
+.artisan-card {
+    background-color: var(--light-text);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.artisan-card:hover {
+    transform: translateY(-10px);
+}
+
+.artisan-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.artisan-info {
+    padding: 20px;
+}
+
+.artisan-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.artisan-info p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Upcoming Workshops */
+.upcoming-workshops {
+    padding: 50px 0;
+    background-color: var(--marble);
+}
+
+.upcoming-workshops h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+.workshop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 50px;
+}
+
+.workshop-card {
+    background-color: var(--light-text);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.workshop-card:hover {
+    transform: scale(1.05);
+}
+
+.workshop-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.workshop-info {
+    padding: 20px;
+}
+
+.workshop-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.workshop-info p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.register-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--gold);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.register-btn:hover {
+    background-color: var(--highlight-color);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 50px 0;
+    background-color: var(--secondary-color);
+}
+
+.contact-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--light-text);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-button {
+    padding: 12px 25px;
+    background-color: var(--gold);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: var(--highlight-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: var(--light-text);
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-logo h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-social a {
+    color: var(--light-text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover,
+.footer-social a:hover {
+    color: var(--gold);
+}
+
+.footer-social .social-icon {
+    margin-right: 15px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--light-text);
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: var(--text-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--gold);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin-top: 15px;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .banner-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo, .footer-links, .footer-social {
+        margin-bottom: 30px;
+    }
+}
+
+/* Classical Architectural Elements */
+.featured-products::before,
+.featured-artisans::before,
+.upcoming-workshops::before,
+.contact-section::before {
+    content: '';
+    display: block;
+    height: 20px;
+    background-image: url('classical-border.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+
+.category-card,
+.product-card,
+.artisan-card,
+.workshop-card {
+    border: 2px solid var(--gold);
+    position: relative;
+}
+
+.category-card::before,
+.product-card::before,
+.artisan-card::before,
+.workshop-card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid var(--gold);
+    pointer-events: none;
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background-image: url('classical-pillar.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+}
